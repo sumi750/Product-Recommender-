@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Sumit",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.32.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "dotgitignore": "^2.1.0",
+    "express": "^5.2.1",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.0.1",
+    "openai": "^6.10.0"
+  }
+}
