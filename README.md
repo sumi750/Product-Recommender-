@@ -67,3 +67,17 @@ Stores:
   MONGO_URI=your_mongodb_connection_string
   
   OPENAI_API_KEY=your_openai_api_key
+
+  ⚠️ Do NOT upload .env to GitHub.
+
+  3️⃣ Seed the database
+
+  npm run dev
+
+  This inserts:
+  - Sample products
+  - A test user
+  - Interactions
+
+You will receive a User ID in the terminal output.
+Use this ID to test the recommendation API.
