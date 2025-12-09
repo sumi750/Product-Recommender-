@@ -53,6 +53,6 @@ Stores:
 
 
 🔧 Setup Instructions
-1️⃣ Install dependencies
-cd Backend
-npm install
+ 1️⃣ Install dependencies
+ cd Backend
+ npm install
