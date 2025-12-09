@@ -94,7 +94,7 @@ Fetch personalized recommendations and AI explanations.
 
 Example Request:
 
-curl http://localhost:4000/api/recommend/<userId>
+curl http://localhost:4000/api/recommend/: userId
 
 Example Response:
 
