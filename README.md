@@ -81,3 +81,39 @@ Stores:
 
 You will receive a User ID in the terminal output.
 Use this ID to test the recommendation API.
+
+4️⃣ Start the backend server
+
+npm run dev
+
+📡 API Endpoints
+
+### GET /api/recommend/:userId
+
+Fetch personalized recommendations and AI explanations.
+
+Example Request:
+
+curl http://localhost:4000/api/recommend/<userId>
+
+Example Response:
+
+{
+  "user": {
+    "id": "65f12abc...",
+    "name": "Test User"
+  },
+  "recommendations": [
+    {
+      "product": {
+        "title": "Nike Air Max",
+        "category": "Shoes",
+        "price": 6999
+      },
+      "explanation": "Recommended because you often view sports and running products."
+    }
+  ]
+}
+
+
+
