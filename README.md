@@ -17,3 +17,11 @@
 
 LLM Usage Guidance:
 - Example prompt: “Explain why product X is recommended to this user based on their behavior.”
+
+
+🏗 System Architecture
+High-Level Component Diagram
+
+
+Uploaded separately in repo under
+<img width="1108" height="507" alt="image" src="https://github.com/user-attachments/assets/5f56726b-4eae-4702-900f-b27a8d521e4a" />
