@@ -1,7 +1,7 @@
 # 📘 E-commerce Product Recommender — Backend API
 ## This backend provides a Product Recommendation API that analyzes user interactions (views, clicks, purchases) and generates AI-powered explanations using OpenAI.
 🎯 Objective
-Combine recommendation logic with LLM-powered explanations for users.
+- Combine recommendation logic with LLM-powered explanations for users.
 📌 Referencing the assignment specification
 Input: Product catalog + user behavior
 Output: Recommended products + LLM-generated explanation (“Why this product?”)
