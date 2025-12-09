@@ -12,8 +12,6 @@ const recommendRoute = require('./src/routes/recommend.js');
 const app = express();
 dotenv.config();
 
-
-
 //connect to Db
 connectDB();
 
@@ -26,6 +24,5 @@ const PORT = process.env.PORT | 4000;
 app.use('/api/recommend', recommendRoute);
 
 app.get('/', (req, res) => res.send('Ecom Recommender API'));
-
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));

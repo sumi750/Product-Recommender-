@@ -1,8 +1,7 @@
-// routes/recommend.js
 const express = require('express');
 const router = express.Router();
 const { recommendForUser } = require('../services/recommender');
-const { generateExplanation } = require('../services/openaiClient'); // <- ensure this exports generateExplanation
+const { generateExplanation } = require('../services/openaiClient');
 const User = require('../models/User');
 
 // Helper: small delay
@@ -22,8 +21,9 @@ router.get('/:userId', async (req, res) => {
     const options = sentences ? { sentences } : { type: 'medium' };
 
     if (parallel) {
+
       // Run in parallel with Promise.allSettled, but still safe if any fail.
-      // NOTE: for large lists this may hit rate limits - prefer batching.
+      // for large lists this may hit rate limits - prefer batching.
       const promises = recommended.map(async (p) => {
         try {
           const explanation = await generateExplanation(metadata || {}, p, options);
@@ -38,7 +38,9 @@ router.get('/:userId', async (req, res) => {
       const out = settled.map(s => s.status === 'fulfilled' ? s.value : s.reason);
       return res.json({ user: { id: user._id, name: user.name }, recommendations: out });
     } else {
+
       // Sequential with a small delay to avoid throttling
+      
       const out = [];
       for (const p of recommended) {
         try {

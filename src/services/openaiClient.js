@@ -1,15 +1,9 @@
-// install: npm install @google/genai
 const { GoogleGenAI } = require('@google/genai');
 
 const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || null,
+  apiKey: process.env.GOOGLE_API_KEY || null,
 });
 
-/**
- * Generate a multi-sentence explanation for one product.
- *
- * lengthHint: { sentences: number } or { type: 'short'|'medium'|'long' }
- */
 async function generateExplanation(userBehavior = {}, product = {}, lengthHint = { type: 'medium' }) {
   const preferredCategories = Array.isArray(userBehavior.preferredCategories) ? userBehavior.preferredCategories.join(', ') : 'none';
   const preferredTags = Array.isArray(userBehavior.preferredTags) ? userBehavior.preferredTags.join(', ') : 'none';
@@ -28,7 +22,7 @@ async function generateExplanation(userBehavior = {}, product = {}, lengthHint =
       instruction = 'Write 2 concise sentences explaining why this product is recommended to the user.';
     } else if (!Number.isNaN(s) && s <= 4) {
       maxOutputTokens = 160;
-      instruction = 'Write 3–4 short sentences (or 3 bullet points) explaining why this product is recommended to the user.';
+      instruction = 'Write 3-4 short sentences (or 3 bullet points) explaining why this product is recommended to the user.';
     } else {
       // for very long text
       maxOutputTokens = Math.min(512, 50 * s); // conservative upper bound
@@ -37,7 +31,7 @@ async function generateExplanation(userBehavior = {}, product = {}, lengthHint =
   } else if (lengthHint && lengthHint.type) {
     if (lengthHint.type === 'short') { maxOutputTokens = 40; instruction = 'Write 1 concise sentence.'; }
     if (lengthHint.type === 'medium') { maxOutputTokens = 80; instruction = 'Write 2 concise sentences.'; }
-    if (lengthHint.type === 'long') { maxOutputTokens = 160; instruction = 'Write 3–4 short sentences or 3 bullet points.'; }
+    if (lengthHint.type === 'long') { maxOutputTokens = 160; instruction = 'Write 3-4 short sentences or 3 bullet points.'; }
   }
 
   const prompt = `User behavior:
@@ -63,29 +57,12 @@ Keep the tone: friendly, plain English. Do NOT include marketing copy like "Buy 
       }
     });
 
-    // SDK typically returns text in res.text; fallback to other shapes if needed
     const text = (res && (res.text || res.outputText || res.output)) ? (res.text || res.outputText || res.output) : '';
     return (typeof text === 'string') ? text.trim() : '';
   } catch (err) {
     console.error('generateExplanation error:', err);
-    // return a clear fallback explanation so UI doesn't break
     return `Recommended based on your recent activity (category: ${preferredCategories}).`;
   }
 }
-
-/**
- * Enrich every recommendation in the payload with a longer explanation.
- * - payload: object like the JSON you posted
- * - options: { sentences: number } or { type: 'short'|'medium'|'long' }, batchSize: number
- */
-
-
-/* Example usage:
-(async () => {
-  const payload = require('./samplePayload.json'); // your JSON
-  const enriched = await enrichRecommendations(payload, { sentences: 3 }, 2);
-  console.log(JSON.stringify(enriched, null, 2));
-})();
-*/
 
 module.exports = { generateExplanation};

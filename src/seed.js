@@ -29,7 +29,7 @@ const created = await Product.insertMany(sampleProducts);
 console.log('Products created');
 
 
-const user = await User.create({ name: 'Test User', email: 'test@ex.com', preferredCategories: ['Clothing'] });
+const user = await User.create({ name: 'Test User', email: 'test@ex.com', preferredCategories: ['Clothing','Shoes'] });
 
 
 // create some interactions
