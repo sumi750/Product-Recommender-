@@ -94,7 +94,7 @@ Fetch personalized recommendations and AI explanations.
 
 Example Request:
 
-curl http://localhost:4000/api/recommend/: userId
+http://localhost:4000/api/recommend/: userId
 
 Example Response:
 
@@ -129,5 +129,20 @@ Logic used (services/recommender.js):
 
 Explanation generation is done through:
 services/openaiClient.js → OpenAI GPT model.
+
+
+🧪 Testing the API
+
+Test in Postman:
+- Method: GET
+- URL: http://localhost:4000/api/recommend/<userId>
+
+🛡️ Security Notes
+
+Never expose your .env file
+
+Use MongoDB user credentials, not admin user
+
+Restrict OpenAI key usage to server-side only
 
 
