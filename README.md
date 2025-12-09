@@ -117,3 +117,17 @@ Example Response:
 
 
 
+🧠 How Recommendations Work
+
+Logic used (services/recommender.js):
+
+- Category matching
+- Tag similarity (Jaccard similarity score)
+- Popularity boost
+- Sorted by score
+- Top 5–6 items returned
+
+Explanation generation is done through:
+services/openaiClient.js → OpenAI GPT model.
+
+
