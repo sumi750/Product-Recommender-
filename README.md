@@ -138,11 +138,20 @@ Test in Postman:
 - URL: http://localhost:4000/api/recommend/<userId>
 
 🛡️ Security Notes
+- Never expose your .env file
+- Use MongoDB user credentials, not admin user
+- Restrict OpenAI key usage to server-side only
 
-Never expose your .env file
 
-Use MongoDB user credentials, not admin user
+📌 Future Improvements (optional)
+- Collaborative filtering
+- Embedding-based product similarity
+- JWT authentication
+- Caching LLM explanations
+- Admin panel for products
 
-Restrict OpenAI key usage to server-side only
+👤 Author & Contact
+
+Sumit Kumar
 
 
