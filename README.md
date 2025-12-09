@@ -3,15 +3,12 @@
 🎯 Objective
 Combine recommendation logic with LLM-powered explanations for users.
 📌 Referencing the assignment specification
-- Input: Product catalog + user behavior
-- Output: Recommended products + LLM-generated explanation (“Why this product?”)
-- Optional frontend dashboard showing recommendations
+Input: Product catalog + user behavior
+Output: Recommended products + LLM-generated explanation (“Why this product?”)
+Optional frontend dashboard showing recommendations
 🧠Technical Expectations
-- Backend API for recommendations
-- Database for products & user interaction
-- LLM for explanation text
+Backend API for recommendations
+Database for products & user interaction
+LLM for explanation text
 LLM Usage Guidance:
 - Example prompt: “Explain why product X is recommended to this user based on their behavior.”
-📂Deliverables:
-- GitHub repo + README
-- Demo video
